@@ -6,6 +6,7 @@
                         xmlns:local="clr-namespace:PRM.Core.Protocol.RDP"
                         xmlns:protocol="clr-namespace:PRM.Core.Protocol"
                         xmlns:system="clr-namespace:System;assembly=mscorlib"
+                        xmlns:controls="clr-namespace:PRM.Core.Resources.Controls"
                         xmlns:passwordEx="clr-namespace:Shawn.Utils"
                         xmlns:baseClassForm="clr-namespace:PRM.Core.Protocol.BaseClassForm"
                         mc:Ignorable="d"
@@ -259,6 +260,21 @@
                         <CheckBox Content="{DynamicResource server_editor_advantage_ports}" IsChecked="{Binding EnablePorts}"></CheckBox>
                         <CheckBox Content="{DynamicResource server_editor_advantage_printers}" IsChecked="{Binding EnablePrinters}"></CheckBox>
                         <CheckBox Content="{DynamicResource server_editor_advantage_smart_cards}" IsChecked="{Binding EnableSmartCardsAndWinHello}"></CheckBox>
+                    </UniformGrid>
+                </StackPanel>
+            </Grid>
+            <Grid Style="{StaticResource EditorRowGrid}" Height="Auto">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource EditorRowGridTitle}" Text="Remote Folder"></TextBlock>
+
+                    <UniformGrid Columns="2" Rows="2" Width="400" Height="90" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                        <CheckBox Content="{DynamicResource server_editor_advantage_enable_remote_folder}" IsChecked="{Binding EnableRemoteFolder}"></CheckBox>
+                        <TextBlock Visibility="Hidden"></TextBlock>
+                        <controls:ButtonEx Margin="5 0 0 0" Click="ButtonFolderSelection_OnClick" Style="{StaticResource MainColor1ButtonRadius3}" Content="{DynamicResource server_editor_advantage_folder_location}" IsDefault="True"></controls:ButtonEx>
+                        <TextBox Text="{Binding RemoteFolderLocation, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, NotifyOnValidationError=True}"
+                                 MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                 InputMethod.IsInputMethodEnabled="False" IsEnabled="False">
+                        </TextBox>
                     </UniformGrid>
                 </StackPanel>
             </Grid>

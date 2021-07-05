@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
-using PRM.Core.Model;
 using PRM.Core.Protocol.BaseClassForm;
-
+using System.Windows.Forms;
 
 namespace PRM.Core.Protocol.RDP
 {
@@ -21,6 +15,15 @@ namespace PRM.Core.Protocol.RDP
             InitializeComponent();
             Vm = (ProtocolServerRDP)vm;
             DataContext = vm;
+        }
+        private void ButtonFolderSelection_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FolderBrowserDialog();
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Vm.RemoteFolderLocation = dialog.SelectedPath;
+            }
         }
     }
 

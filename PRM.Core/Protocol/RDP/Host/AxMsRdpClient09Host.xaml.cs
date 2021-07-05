@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using AxMSTSCLib;
 using MSTSCLib;
 using PRM.Core.Model;
+using PRM.Core.Utils.RemoteFolder;
 using Shawn.Utils;
 using Color = System.Drawing.Color;
 
@@ -252,6 +253,8 @@ namespace PRM.Core.Protocol.RDP.Host
             {
                 _rdp.AdvancedSettings8.AudioCaptureRedirectionMode = false;
             }
+
+            MountFolderAsDisk.MountDiskFromFolder('X', _rdpServer.RemoteFolderLocation);
 
             #endregion Redirect
         }
@@ -971,6 +974,9 @@ namespace PRM.Core.Protocol.RDP.Host
                 t.Start();
                 _rdp = null;
             }
+
+            MountFolderAsDisk.UnMountDisk('X');
+
             SimpleLogHelper.Debug("RDP Host: _rdp.Dispose()");
         }
     }

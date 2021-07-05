@@ -201,6 +201,8 @@
   "server_editor_advantage_ssh_startup_auto_command": "自动命令",
   "server_editor_advantage_ssh_startup_auto_kitty_session_tip": "输入 KiTTY Portable.exe 的 Session 配置路径可支持更多额外配置",
   "server_editor_advantage_sftp_startup_path": "启动位置",
+  "server_editor_advantage_folder_location": "文件夹位置",
+  "server_editor_advantage_enable_remote_folder": "启用远程文件夹",
   // server editor - RD-gateway group items
   "server_editor_gateway_mode": "连接设置",
   "server_editor_gateway_mode_automatically_detect": "自动检测RD网关服务器设置",

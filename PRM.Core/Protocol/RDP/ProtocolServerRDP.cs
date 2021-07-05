@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 using PRM.Core.Model;
 using Shawn.Utils;
@@ -285,6 +286,25 @@ namespace PRM.Core.Protocol.RDP
         }
 
         #endregion resource switch
+
+        #region remote folder
+
+        private bool? _enableRemoteFolder = false;
+
+        public bool? EnableRemoteFolder
+        {
+            get => _enableRemoteFolder;
+            set => SetAndNotifyIfChanged(nameof(EnableRemoteFolder), ref _enableRemoteFolder, value);
+        }
+
+        private string? _remoteFolderLocation = Directory.GetCurrentDirectory();
+        public string? RemoteFolderLocation
+        {
+            get => _remoteFolderLocation;
+            set => SetAndNotifyIfChanged(nameof(RemoteFolderLocation), ref _remoteFolderLocation, value);
+        }
+
+        #endregion remote folder
 
         #region Gateway
 
